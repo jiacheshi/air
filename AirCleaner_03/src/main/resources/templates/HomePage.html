@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0, user-scalable=no" />
+    <title>主界面</title>
+
+    <link rel="stylesheet" th:href="@{css/hometype.css}"/>
+    <script th:src="@{js/jquery-1.11.3.min.js}"></script>
+    <script th:src="@{js/homeServerData.js}" type="text/javascript"></script>
+    <script th:src="@{js/appback.js}" type="text/javascript"></script>
+    <title>驭风者手机主页面</title>
+    <script src="../static/js/homeData.js"></script>
+
+</head>
+
+<body id="documen">
+
+<!--  LOGO  -->
+<header class="header">
+
+</header>
+<!-- 注册/登录 -->
+
+<div class="fast">
+    <div style="width:100%;height: 1px;border: 1px solid;border-color: white;margin-bottom: 20px;"></div>
+    <span class="reg_0" style="margin-top: 20px;">您好,<span id="aName"></span>
+    </span>
+    <span  class="reg" id="reg"  style=" border-radius: 10px;margin-right: 40px;" ><a class="reg" href="/AirCleaner_03/loginout" style="font-size: 35px; margin-top: 3px;">退出 </a></span>
+
+</div>
+
+<!-- 我的设备 -->
+
+<div class="default">
+    <div class="mys" style="margin-top: 18px;width: 960px;margin-bottom: 10px;">
+        <span style="margin-left: 30px;margin-top: 10px;">我的设备</span>
+        <div  style="float: right;">
+            <a id="addmac"><img  onclick="addmac()" src="imgs/tianjia1.jpg" style="width: 50px;height: 50px;margin-right: 50px;	"></a><img src="imgs/shanchu1.png" style="width: 50px;height: 50px;float: right;margin-right: 50px;	"onclick="delece()">
+        </div>
+    </div>
+
+
+    <div style="width: 100%;height: 1px;"></div>
+    <div id="main1"
+         style="color: #FFF5EE; margin-left: 5%; font-size: 38px; font-family: inherit;">
+    </div>
+
+
+
+
+    <!-- 添加设备悬浮模块 -->
+    <div id="addmac_1"
+         style="border-radius: 18%; display: none; position: absolute; top: 65%; left: 25%; width: 50%; height: 400px; padding: 0; border: 0px solid #c0c0c0; background-color: #5f9ea0; z-index: 1002; overflow: auto; opacity: 0.7; box-shadow: 10px 12px 10px #888888;">
+        <form action="">
+            <div style="font-size: 35px; margin-left: 200px;">设备昵称：</div>
+            <input type="text" style="width: 251px; margin-left: 100px;height: 35px"
+                   id="nickname" name="nickname">
+            <div style="font-size: 35px; margin-left: 200px;">MAC：</div>
+            <input type="text" style="width: 251px; margin-left: 100px;height: 35px"
+                   id="mac" name="mac">
+            <div style="font-size: 35px; margin-left: 200px;">管理密码：</div>
+            <input type="text" style="width: 251px; margin-left: 100px;height: 35px"
+                   id="adminpwd" name="adminpwd">
+            <div style="font-size: 40px; margin-left: 100px;margin-top: 50px;">
+                <input style="float:left; " class="off" type="button" value="添加" onclick="binding1()">  <input class="off" type="button" style="margin-right: 100px;" value="关闭" onclick="off1()"></div>
+
+        </form>
+
+    </div>
+
+    <!-- 按钮悬浮模块 -->
+    <div id="light" class="white_content" style="width: 75%;height: 58%">
+        <div class="gbck" style="width: 50px; height: 50px;"
+             onclick="closeWin()">
+            <img style="width: 40px; height: 40px;" alt=""
+                 src="imgs/biaoshi.jpg">
+        </div>
+        <button class="xfan"    style="margin-left:50px;  width:130px; height: 100px;"     onclick="low()">低</button>
+        <button class="xfan"
+                style="width:130px; height: 100px;"  onclick="mid()">中</button>
+        <button class="xfan"
+                style="width:130px; height: 100px;"onclick="hig()">高</button>
+
+    </div>
+
+
+    <div id="two" class="two_1">
+        <div class="gbck" style="width: 50px; height: 50px;" onclick="my()">
+            <img style="width: 40px; height: 40px;" alt=""
+                 src="imgs/biaoshi.jpg">
+        </div>
+        <button class="xfan" style="margin-left: 100px;" onclick="auto()">智能</button>
+        <button class="xfan" onclick="shutdown()">待机</button>
+    </div>
+
+
+
+
+
+    <div id="three" class="three_1">
+        <div class="gbck" style="width: 50px; height: 50px;"
+             onclick="myfun2()">
+            <img style="width: 40px; height: 40px;" alt=""
+                 src="imgs/biaoshi.jpg">
+        </div>
+        <input type="range" id="slider" max="100"
+               style="width: 50%; height: 50px; margin-top: 30%;margin-left: 10%; -webkit-appearance: none;
+    height: 10px;
+    box-shadow: 5px 5px 10px black;
+    background: #ffffff;
+    border-radius: 20%; /*外观设置为圆形*/
+    border: solid 0.125em rgba(205, 224, 230, 0.5); /*设置边框*/
+    box-shadow: 0 .125em .125em #3b4547; /*添加底部阴影*/"value=0;>
+        <span id="scale1" style="font-size: 40px;margin-left:60px;">--%</span>
+        <button class="xfan" style=" margin-top: 10%;float: right; margin-right: 30px;  width:130px;
+    height: 80px;" onclick="moveChange()">修改</button>
+
+        <script type='text/javascript'>
+            $(function(){
+
+                $("#slider").bind('input propertychange', function() {
+                    $("#scale1").html($(this).val()+"%");
+                });
+
+            })
+        </script>
+    </div>
+
+
+
+
+</div>
+
+
+
+
+
+<!--  按钮功能 -->
+<footer>
+
+
+    <!--新加模块  -->
+    <ul class="last_ul" style="    margin-top: 20px;">
+        <li class="li_1" onclick="myfun22()"
+            style="margin-left: 3%; border: 5px solid; border-style: outset; border-color: #dcdcdc;border-radius: 20%;">
+            <div class="data">新风比例</div>
+            <div id="scale" class="num">--%</div>
+            <p></p>
+        </li>
+
+        <li class="li_1" onclick="myfun()"
+            style="margin-left: 5%; border: 5px solid; border-style: outset; border-color: #dcdcdc;border-radius: 20%;">
+            <div class="data">运行模式</div>
+            <div id="workMode" class="num">--</div>
+            <p></p>
+        </li>
+        <li class="li_1" onclick="openWin()"
+            style="margin-left: 5%; border: 5px solid; border-style: outset; border-color: #dcdcdc;border-radius: 20%;">
+            <div class="data">当前风速</div>
+            <div id="windSpeed" class="num">--</div>
+            <p></p>
+        </li>
+
+    </ul>
+ </footer>
+</body>
+</html>

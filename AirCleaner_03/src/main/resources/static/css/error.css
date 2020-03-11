@@ -1,0 +1,5 @@
+body {
+    background-image: url("../imgs/beijing.png");
+    background-size: 100% 100%;
+    overflow: auto;
+}

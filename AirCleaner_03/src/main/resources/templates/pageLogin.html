@@ -1,0 +1,98 @@
+<!DOCTYPE HTML>
+<html lang="en"
+	  xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>登录页面</title>
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+	<link rel="stylesheet" th:href="@{css/boot-crm.css}"/>
+	<link rel="stylesheet" th:href="@{css/style.css}"/>
+	<script th:src="@{js/jquery-1.11.3.min.js}"></script>
+<style>
+	footer{
+	    margin-top:55%;
+	    margin-left:20%;
+	    width: 80%;
+	    height: 700px;
+	    font-size: 40px;
+	    border-color:#d3d3d3;
+	}
+	.logi{
+	    margin-left:50px;
+	    align-content: center;
+	    margin-top: 50px;
+	    height: 100px;
+	}
+	
+	.labe{
+	    width: 80px;
+	}
+	.control{
+	    background:transparent;border:0;
+	    width:350px;
+	    border: none;
+	    height:40px;
+	    margin-left: 40px;
+	    font-size: 30px;
+	}
+	.xiah{
+	    margin-left: 40px;
+	    height: 0px;
+	    border: 1px solid;
+	    border-color: white	;
+	    margin-top:0px;
+	    width: 350px;
+	}
+
+</style>
+</head>
+<body leftMargin=0 topMargin=0 marginwidth="0" marginheight="0"
+	background="${pageContext.request.contextPath}/images/rightbg.jpg">
+<div ALIGN="center">
+<table border="0" width="1140px" cellspacing="0" cellpadding="0"
+                                                           id="table1">
+	<tr>
+		<td height="93"></td>
+		<td></td>
+	</tr>
+	<tr>
+   <td background="${pageContext.request.contextPath}/images/rights.jpg"
+		width="740" height="412">
+   </td>
+   <td class="login_msg" width="400" align="center">
+	 <!-- margin:0px auto; 控制当前标签居中 -->
+	 <fieldset style="width: auto; margin: 0px auto;">
+		  <legend>
+		     <font style="font-size:25px" face="宋体">
+		          欢迎使用驭风者室内空气智能管理系统
+		     </font>
+		  </legend> 
+		<font color="red">
+       <span id="message"></span>
+		</font>
+	 <form action="/login"  method="post" id="form-login"  onsubmit="return fun();">
+	        <!--class属性在css用 action属性后接映射名在控制器里面有 method属性一般都是post -->
+	        <!--type说明他是文本输入框  name后接实体类的类成员名字，不然传不出去！！-->
+	        <div id="na" class="logi"> <label for="uname" class="labe"></label>
+	            <input name="uname" type="text" class="control" id="uname"  placeholder="请输入用户名"></div>
+	
+	        <div class="xiah"></div>
+	
+	        <div id="pa" class="logi"><label  type="password" for="upass" class="labe" ></label>
+	            <input name="upass" type="password" class="control" id="upass"  placeholder="请输入密码"></div>
+	        <div class="xiah"></div>
+	        <!--提交按钮-->
+	
+	
+	
+	        <div id="bu"class="logi" style="margin-left: 80px;"><input type="submit"value="登录" style="width: 80px;height: 50px;border-radius: 10px;background-color: #3487ff;font-size: 20px;">
+	            还没有账号？<a href="/AirCleaner_03/registerPage">注册</a></div>
+	
+	    </form>
+	 </fieldset>
+	</td>
+	</tr>
+</table>
+</div>
+</body>
+</html>

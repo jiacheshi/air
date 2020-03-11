@@ -1,0 +1,168 @@
+<!DOCTYPE HTML>
+<html lang="en"
+	  xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>驭风者网站页面</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<!-- 引入css样式文件 -->
+	<!-- Bootstrap Core CSS -->
+	<!-- MetisMenu CSS -->
+	<link rel="stylesheet" th:href="@{css/metisMenu.min.css}"/>
+	<!-- DataTables CSS -->
+	<link rel="stylesheet" th:href="@{css/dataTables.bootstrap.css}"/>
+	<!-- Custom CSS -->
+	<link rel="stylesheet" th:href="@{css/sb-admin-2.css}"/>
+	<!-- Custom Fonts -->
+	<link rel="stylesheet" th:href="@{css/font-awesome.min.css}"/>
+
+	<link rel="stylesheet" th:href="@{css/boot-crm.css}"/>
+	<link rel="stylesheet" th:href="@{css/webHomePage.css}"/>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+	<script th:src="@{js/jquery-1.11.3.min.js}"></script>
+	<script th:src="@{js/homePage.js}" type="text/javascript"></script>
+	<style type="text/css">
+		.mediate{
+			border-radius: 10px;
+
+			border-width:1px;
+			width: 300px;
+			height: 200px;
+			float:left;
+			border: 3px groove #D3D3D3;
+			margin-right: 50px;
+		}
+
+	</style>
+</head>
+<body>
+<div id="wrapper">
+  <!-- 导航栏部分 -->
+  <nav class="navbar navbar-default navbar-static-top" role="navigation"
+		 style="margin-bottom: 0">
+	<div class="navbar-header">
+		<a class="navbar-brand" href="">驭风者室内空气智能管理系统</a>
+	
+	</div>
+	<a href="/" class="btn btn-primary" style="float: right;margin-top: 8px;" data-toggle="modal"data-target="#newCustomerDialog" >登录/注册</a>
+	
+	
+	<div class="navbar-default sidebar" role="navigation">
+		<div class="sidebar-nav navbar-collapse">
+			<ul class="nav" id="side-menu" style="height: 930px;">
+				<div id="main1"></div>
+			<!--动态添加部分（设备名）-->
+				<a href="#" class="btn btn-primary" data-toggle="modal"
+				           data-target="#newCustomerDialog" onclick="clearCustomer()">添加设备</a>
+						   </li>
+			</ul>
+		</div>
+	</div>
+  </nav>
+    <!-- 客户列表查询部分  start-->
+	<div id="page-wrapper">
+		<div class="row">
+			<div class="col-lg-12">
+				<h1 class="page-header">设备管理</h1>
+			</div>
+			<!-- /.col-lg-12 -->
+		</div>
+		<!-- /.row -->
+		<div class="panel panel-default">
+			<div class="panel-body" style="height: 464px;">
+						<!--动态添加部分（设备运行详情）-->
+						 <div id="main2"
+						         style="color: black; margin-left: 5%; font-size: 38px; font-family: inherit;">
+						    </div>
+					</div>
+			</div>
+
+
+		<div class="row">
+			<div class="col-lg-12">
+				<h3 class="page-header">设备调节</h3>
+			</div>
+			<!-- /.col-lg-12 -->
+		</div>
+		<div class="panel panel-default" style="">
+			<div class="panel-body" style="height: 230px;">
+
+				<div class="mediate">
+					<div style="width: 100px;height: 120px;border-style: solid;border-width:1px;float: right;">
+						<div style="height: 80px;width: 80px;font-size:70px;">低</div>
+						<h4>当前风速：</h4>
+					</div>
+
+					<input type="image" src="img/fan.png" style="width: 120px;height: 120px;margin-left: 40px;" />
+					<div style="height:60px;margin-top: 5px;">
+						<table>
+							<tr>
+								<td><input type="button" value="低" name="FAN" onclick="low()" style="width: 95px;height: 60px;"></td>
+								<td><input type="button" value="中" onclick="mid()" style="width: 95px;height: 60px;"></td>
+								<td><input type="button" value="高" onclick="hig()" style="width: 95px;height: 60px;"></td>
+							</tr>
+						</table>
+					</div>
+				</div>
+				<!--运行模式-->
+				<div class="mediate">
+					<div style="width: 100px;height: 120px;border-style: solid;border-width:1px;float: right;">
+						<div style="height: 60px;width: 120px;font-size:50px;margin-top: 20px;">智能</div>
+						<h4>当前模式：</h4>
+					</div>
+
+					<input type="image" src="img/运行模式.jpg" style="width: 120px;height: 120px;margin-left: 30px;" />
+					<div style="height:60px;margin-top: 5px;">
+						<table>
+							<tr>
+								<td><input type="button" value="自动" onclick="auto()" style="width: 145px;height: 60px;"></td>
+
+								<td><input type="button" value="待机" onclick="shutdown()" style="width: 145px;height: 60px;"></td>
+							</tr>
+						</table>
+					</div>
+				</div>
+
+				<!--新风比例框-->
+				<div class="mediate">
+					<div style="width: 100px;height: 120px;border-style: solid;border-width:1px;float: right;">
+						<div style="height: 70px;width: 70px;font-size:70px;">20</div>
+						<h4>新风比例：%</h4>
+					</div>
+
+					<input type="image" src="img/新风比例.png" style="width: 150px;height: 150px;margin-left: 25px;" />
+					<div style="height:60px;margin-top: 5px;">
+						<input type="range" id="slider" max="100" min="1" style="width: 190px;height: 20px;">
+						<input type="button"  value="修改" onclick="moveChange()" style="height: 50px;width: 70px;float:right;margin-top:-35px">
+						<div id="result" style="float: left;">10%</div>
+						<script type='text/javascript'>
+							$(function(){
+								$("#slider").bind('input propertychange', function() {
+									$("#result").html($(this).val()+"%");
+								});
+							})
+									</script>
+							</table>
+							</div>
+							</div>
+
+
+
+							</div>
+
+
+							</div>
+
+
+
+							</div>
+
+
+
+		<!-- 主题内容！！！！！！！ -->
+		<!-- <p class="one" style="border-style:solid;border-width:5px;height: 500px;width: 500px;">设备详情</p> -->
+	</div>
+	<!-- 客户列表查询部分  end-->
+
+</body>
+</html>

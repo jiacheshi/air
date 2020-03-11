@@ -1,0 +1,28 @@
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script th:src="@{js/jquery-1.11.3.min.js}"></script>
+    <link rel="stylesheet" th:href="@{css/hometype.css}"/>
+</head>
+<body>
+<!--下载apk界面-->
+<div class="" style="margin: 0px auto;margin-top: 49%;width: 400px;margin-top: 79%;width: 244px;">
+    <a href="download/y.apk" style="font-size: 35px;">点击链接下载</a>
+    <button onclick="download2()"style="font-size: 30px;">点击按钮下载</button>
+</div>
+<script>
+
+
+    // 直接下载，用户体验好
+    function download2() {
+        var $form = $('<form method="get"></form>');
+        $form.attr('action', 'download/y.apk');
+        $form.appendTo($('body'));
+        $form.submit();
+    }
+</script>
+</body>
+</html>

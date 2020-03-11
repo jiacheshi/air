@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0, user-scalable=no" />
+    <title>注册界面</title>
+    <script th:src="@{js/jquery-1.11.3.min.js}"></script>
+    <link rel="stylesheet" th:href="@{css/registerStyle.css}"/>
+
+    <script th:src="@{js/register.js}" type="text/javascript"></script>
+
+</head>
+<body id="documen" onbeforeonloadNew="mysize()">
+<div style="margin-top: 40%;margin-left: 20%;">
+    <div class="heard" style="font-size: 40px">驭风者：欢迎注册</div>
+    <div style="font-size: 25px;"><a href="/AirCleaner_03/log">已有账号，请登录</a></div>
+
+</div>
+<footer>
+    <form method="post" id="form-reg"  role="form" action="/AirCleaner_03/register" onsubmit="return check();">
+
+
+
+        <div class="td_1"><div class="td_2" >用户名：</div>
+            <input type="text" id="username" name="uname"placeholder="请输入8~16位数字或字母"maxlength="16" onblur="hint()"><span id="hint" style="color:#FF0000;font-size:14px;"></span></div>
+
+        <div class="td_1" ><div class="td_2" >密码：</div>
+            <input type="password" id="upass" name="upass"placeholder="密码由小写字母和数字组成"maxlength="20" onblur="up()"><span id="hintV" style="color:#FF0000;font-size:14px;"></span></div>
+
+
+
+        <div class="td_1" ><div class="td_2" >手机号：</div>
+            <input type="text" id="phonenumber" name="phonenumber" placeholder="情输入手机号（可选）"></div>
+
+
+
+
+        <div class="td_1" ><div class="td_2" >邮箱：</div>
+            <input type="text" id="email"name="email"placeholder="情输入邮箱（可选）"></div>
+
+        <div class="td_1" ><div class="td_2" >QQ：</div>
+            <input type="text" id="qq" name="qq"placeholder="情输入QQ（可选）"></div>
+        <div class="td_1" ><div class="td_2" >微信：</div>
+            <input type="text" id="wechat"name="wechat"placeholder="情输入微信（可选）"></div>
+
+
+
+        <div class="td_1" ><input id="btn-reg" class="but" type="submit"  value="注册">
+            <input id="btn-regs" class="but" type="reset"  value="取消"></div>
+
+        <input type = "hidden" name = "mac" id="mac" value = "">
+
+
+
+    </form>
+
+
+
+
+
+
+
+</footer>
+
+</body>
+</html>

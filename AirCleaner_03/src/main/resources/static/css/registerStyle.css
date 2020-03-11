@@ -1,0 +1,33 @@
+ body {
+     background-image: url("../imgs/beijing.png");
+     background-size: 100% 150%;
+     font-family: "Microsoft Yahei","微软雅黑",SimHei,"黑体","Hiragino Sans GB",STHeiTi,sans-serif;
+ }
+
+ footer{
+     font-size: 42px;
+     margin-left:15%;
+     width: 70%;
+     border: 2px white solid;
+     height: 900px;
+     border-radius: 20%;
+     margin-top: 148px;
+ }
+ input {
+     width: 389px;
+     height: 55px;
+     font-size: 31px;
+ }
+ .td_1{
+     margin-left: 90px;
+
+ }
+ #btn-reg{
+     margin-top:80px;
+     margin-left: 30px;
+     border-radius: 10px;
+     width: 90px;
+     height: 40px;
+     font-size: 25px;
+     background-color: #3487ff;
+ }

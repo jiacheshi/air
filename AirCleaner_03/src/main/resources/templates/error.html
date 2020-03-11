@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{css/hometype.css}"/>
+    <script th:src="@{js/jquery-1.11.3.min.js}"></script>
+</head>
+<script type="text/javascript">
+    setTimeout( function(){
+        window.location.href = '/AirCleaner_03/log';
+//add your code
+    }, 3 * 1000 );//延迟5000毫米
+</script>
+<body>
+<div>
+    <div style="height: 30%;width:30%;margin: 0px auto;margin-top: 50%">
+
+    <h3>用户名或密码输入错误，三秒后自动跳转至登录界面！</h3>
+    <a href="/AirCleaner_03/log">重新登录</a>
+    </div>
+</div>
+
+
+</body>
+</html>
